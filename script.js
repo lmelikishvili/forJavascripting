@@ -191,7 +191,7 @@ if(bmiJohn > bmiMark) {
 /***********************
 boolean logic
 */
-
+/*
 var firstName = 'john';
 var age = 25;
 
@@ -202,6 +202,114 @@ if(age < 13){
 }else if(age >= 20 || age < 30){
     console.log(firstName + ' is yong man!')
 }
+*/
+
+
+
+/***********************
+Ternary Operator and Switch Statemant
+*/
+
+/*
+var firstName = 'John';
+var age = 25;
+
+//Ternary Operator
+age >= 18 ? console.log(firstName + ' drinks beer') : console.log(firstName + ' drinks juice');
+
+var drink = age >= 18 ? 'beer' : 'juice';
+console.log(drink);
+*/
+
+/*if(age >= 18){
+    drink = 'beer';
+}else{
+    drink = 'juice';
+}*/
+
+
+
+
+//Switch Statements
+
+/*
+var job = 'instructor';
+switch(job){
+    case 'teacher' :
+    case 'instructor' :
+        console.log(firstName + ' teachs kids coding');
+        break;
+    case 'driver' :
+        console.log(firstName + ' drives blue bus');
+        break;
+    case 'designer' :
+        console.log(firstName + ' desinging beatiful websites');
+        break;
+        default :
+        console.log('doing something');
+}
+
+age = 30
+switch(true){
+    case age < 13:
+        console.log(firstName + ' is a boy');
+        break;
+    case age > 13 && age < 20:
+        console.log(firstName + ' is teenager');
+        break;
+    case age >= 20 && age < 30:
+        console.log(firstName + ' is yong man');
+        break;
+    default:
+        console.log(firstName + ' is a man');
+}
+*/
+
+
+/***********************
+Truthy and Falsy Values and Equality Operators
+*/
+
+// falsy values: undefined, null, 0, '', NaN
+// trutly values: NOT falsy values
+
+var height;
+
+height = 23;
+
+if (height || height === 0){
+    console.log('Variable is defined');
+}else{
+    console.log('Variable has been NOT defined');
+}
+
+// Equality operators
+
+if(height == '23'){
+    console.log('The == operator does type coercion!');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
