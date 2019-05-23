@@ -295,7 +295,7 @@ if(height == '23'){
 CODING CHALANGE 2
 */
 
-
+/*
 var teamJohnM1 = 89;
 var teamJohnM2 = 120;
 var teamJohnM3 = 103;
@@ -328,6 +328,61 @@ if(teamJohnAve > teamMarkAve && teamJohnAve > teamMaryAve){
 }else{
     console.log('Martch is Draw!!!');
 }
+*/
+
+
+
+/***********************
+Functions
+*/
+
+/*
+function calculateAge(birthYear){
+    return 2018 - birthYear;
+}
+
+function yearsUntilRetirement(year, firstName){
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+    if(retirement > 0){
+        console.log(firstName + ' Retires in ' + retirement + ' years.');
+    }else{
+        console.log(firstName + ' is already retired.')
+    }
+}
+
+yearsUntilRetirement(1991, 'goka');
+*/
+
+
+
+
+
+/***********************
+Function Statements and Expressions
+*/
+
+//Function declaaration
+//function wharDoYouDo(job, firstName){}
+
+//Function expression
+var whatDoYouDo = function(job, firstName){
+    switch(job){
+        case 'teacher':
+            return firstName + ' teaches kids coding.';
+        case 'driver':
+            return firstName + ' drives blu bus.';
+        case 'designer':
+            return firstName + ' desing beautiful websites.';
+        default:
+            return firstName + ' doing somethings.';
+    }
+}
+
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('driver', 'Jane'));
+console.log(whatDoYouDo('designer', 'Mark'));
+console.log(whatDoYouDo('cop', 'Joe'));
 
 
 
