@@ -286,7 +286,7 @@ if (height || height === 0){
 // Equality operators
 
 if(height == '23'){
-    console.log('The == operator does type coercion!');
+    console.log('The == operator does type coercion!!!!');
 }
 
 
