@@ -427,11 +427,33 @@ console.log(isDesigner);
 CODE CHALANGE 3
 */
 
+var bill1 = 124;
+var bill2 = 48;
+var bill3 = 268;
 
 
+function billsCalculator(billAmount){
+    var cash;
+    if(billAmount < 50){
+        cash = billAmount * 0.2;
+        return cash;
+    }else if(billAmount > 50 && billAmount < 200){
+        cash = billAmount * 0.15;
+        return cash;
+    }else if(billAmount > 200){
+        cash = billAmount * 0.1;
+        return cash;
+    }else{
+        console.log('Somthing is Wrong!!!');
+    }
+}
 
 
-
+var bills = [bill1, bill2, bill3,];
+var tips = [billsCalculator(bills[0]), billsCalculator(bills[1]), billsCalculator(bills[2])];
+console.log(tips);
+var finalCash = [bills[0] + billsCalculator(bills[0]), bills[1] + billsCalculator(bills[1]), bills[2] + billsCalculator(bills[2])];
+console.log(finalCash);
 
 
 
