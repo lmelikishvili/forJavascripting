@@ -272,7 +272,7 @@ Truthy and Falsy Values and Equality Operators
 
 // falsy values: undefined, null, 0, '', NaN
 // trutly values: NOT falsy values
-
+/*
 var height;
 
 height = 23;
@@ -288,17 +288,46 @@ if (height || height === 0){
 if(height == '23'){
     console.log('The == operator does type coercion!!!!@@@@@');
 }
+*/
 
 
+/***********************
+CODING CHALANGE 2
+*/
 
 
+var teamJohnM1 = 89;
+var teamJohnM2 = 120;
+var teamJohnM3 = 103;
+
+var teamJohnAve = (teamJohnM1 + teamJohnM2 + teamJohnM3) / 3;
+console.log(teamJohnAve);
+
+var teamMarkM1 = 116;
+var teamMarkM2 = 94;
+var teamMarkM3 = 123;
+
+var teamMarkAve = (teamMarkM1 + teamMarkM2 + teamMarkM3) / 3;
+console.log(teamMarkAve);
 
 
+var teamMaryM1 = 97;
+var teamMaryM2 = 134;
+var teamMaryM3 = 105;
+
+var teamMaryAve = (teamMaryM1 + teamMaryM2 + teamMaryM3) / 3;
+console.log(teamMaryAve);
 
 
-
-
-
+if(teamJohnAve > teamMarkAve && teamJohnAve > teamMaryAve){
+    console.log('Winner is John\'s Team!!!');
+}else if(teamMarkAve > teamJohnAve && teamMarkAve > teamMaryAve){
+    console.log('Winner is Mark\'s Team!!!');
+}else if(teamMaryAve > teamJohnAve && teamMaryAve > teamMarkAve){
+    console.log('Winner is Marys\'s Team!!!');
+}else{
+    console.log('Martch is Draw!!!');
+}
 
 
 
