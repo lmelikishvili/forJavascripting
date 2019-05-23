@@ -366,6 +366,7 @@ Function Statements and Expressions
 //function wharDoYouDo(job, firstName){}
 
 //Function expression
+/*
 var whatDoYouDo = function(job, firstName){
     switch(job){
         case 'teacher':
@@ -383,15 +384,48 @@ console.log(whatDoYouDo('teacher', 'John'));
 console.log(whatDoYouDo('driver', 'Jane'));
 console.log(whatDoYouDo('designer', 'Mark'));
 console.log(whatDoYouDo('cop', 'Joe'));
+*/
 
 
 
+/***********************
+Arrays
+*/
+/*
+//initialize Array
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1992, 1969, 1948);
+
+console.log(names.length);
+
+//Mutated Array data
+names[2] = 'jonsy';
+console.log(names[2]);
+
+//Different data types
+var john = ['John', 'Smith', 1990, 'designer', false];
+
+console.log(john);
+john.push('blue');
+john.unshift('Mr.');
+console.log(john);
+
+john.pop();
+john.shift();
+console.log(john);
+
+console.log(john.indexOf(23));
+console.log(john.indexOf('designer'));
+
+var isDesigner = john.indexOf('designer') === -1 ? 'Jhon is not Designer' : 'john is a Designer';
+console.log(isDesigner);
+*/
 
 
 
-
-
-
+/***********************
+CODE CHALANGE 3
+*/
 
 
 
