@@ -426,7 +426,7 @@ console.log(isDesigner);
 /***********************
 CODE CHALANGE 3
 */
-
+/*
 var bill1 = 124;
 var bill2 = 48;
 var bill3 = 268;
@@ -454,6 +454,71 @@ var tips = [billsCalculator(bills[0]), billsCalculator(bills[1]), billsCalculato
 console.log(tips);
 var finalCash = [bills[0] + billsCalculator(bills[0]), bills[1] + billsCalculator(bills[1]), bills[2] + billsCalculator(bills[2])];
 console.log(finalCash);
+*/
+
+
+
+/***********************
+Objects and properties
+*/
+
+//Object literal
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    Job: 'teacher',
+    isMarried: 'false'
+};
+
+console.log(john.firstName);
+console.log(john['lastName']);
+var x = 'birthYear';
+console.log(john[x]);
+
+john.Job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+//new object syntax
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
