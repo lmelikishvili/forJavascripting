@@ -461,7 +461,7 @@ console.log(finalCash);
 /***********************
 Objects and properties
 */
-
+/*
 //Object literal
 var john = {
     firstName: 'John',
@@ -487,26 +487,76 @@ jane.firstName = 'Jane';
 jane.birthYear = 1969;
 jane['lastName'] = 'Smith';
 console.log(jane);
+*/
 
 
 
+/***********************
+Objects and methods
+*/
+
+/*
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    Job: 'teacher',
+    isMarried: 'false',
+    calcage: function(){
+        this.age = 2018 - this.birthYear;
+    }
+};
+
+john.calcage();
+console.log(john);
+*/
+
+
+/***********************
+CODING CHALANGE 4
+*/
+
+/*
+var john = {
+    name: 'John',
+    mass: 80,
+    height: 1.60,
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height);
+    }
+}
+
+var mark = {
+    name: 'Mark',
+    mass: 80,
+    height: 1.80,
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height);
+    }
+}
+john.calcBMI();
+mark.calcBMI();
+
+if(john.bmi > mark.bmi){
+    console.log('John\'s BMI is Higher than Mark\'s with: ' + john.bmi );
+}else if(mark.bmi > john.bmi){
+    console.log('Mark\'s BMI is Higher than John\'s with: ' + mark.bmi );
+}else{
+    console.log('John and Mark have equal BMI');
+}
+*/
 
 
 
+/***********************
+loops and iteration
+*/
 
+for (var i = 1; i <= 20; i += 2) {
+    console.log(i);
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
