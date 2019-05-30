@@ -554,8 +554,7 @@ loops and iteration
 */
 
 for (var i = 1; i <= 20; i += 2) {
-    console.log(i);
-
+    i === 5 ? console.log('im fcking equal 5') : i < 5 ?console.log('im ' + i + ' not yet equal 5') : console.log('im ' + i + ' greather than 5');
 }
 
 
