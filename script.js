@@ -478,16 +478,16 @@ var x = 'birthYear';
 console.log(john[x]);
 
 john.Job = 'designer';
-//john['isMarried'] = true;
-//console.log(john);
-//
-////new object syntax
-//var jane = new Object();
-//jane.firstName = 'Jane';
-//jane.birthYear = 1969;
-//jane['lastName'] = 'Smith';
-//console.log(jane);
-//*/
+john['isMarried'] = true;
+console.log(john);
+
+//new object syntax
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
+*/
 
 
 
@@ -522,25 +522,25 @@ var john = {
     name: 'John',
     mass: 80,
     height: 1.60,
-//    calcBMI: function(){
-//        this.bmi = this.mass / (this.height * this.height);
-////    }
-//}
-//
-//var mark = {
-//    name: 'Mark',
-//    mass: 80,
-//    height: 1.80,
-//    calcBMI: function(){
-//        this.bmi = this.mass / (this.height * this.height);
-//    }
-//}
-//john.calcBMI();
-//mark.calcBMI();
-//
-//if(john.bmi > mark.bmi){
-//    console.log('John\'s BMI is Higher than Mark\'s with: ' + john.bmi );
-//}else if(mark.bmi > john.bmi){
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height);
+    }
+}
+
+var mark = {
+    name: 'Mark',
+    mass: 80,
+    height: 1.80,
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height);
+    }
+}
+john.calcBMI();
+mark.calcBMI();
+
+if(john.bmi > mark.bmi){
+    console.log('John\'s BMI is Higher than Mark\'s with: ' + john.bmi );
+}else if(mark.bmi > john.bmi){
     console.log('Mark\'s BMI is Higher than John\'s with: ' + mark.bmi );
 }else{
     console.log('John and Mark have equal BMI');
@@ -552,27 +552,27 @@ var john = {
 /***********************
 loops and iteration
 */
-
-//for (var i = 1; i <= 20; i +=2) {
-//    i === 5 ? console.log('im fcking equal 5') : i < 5 ?console.log('im ' + i + ' not yet equal 5') : console.log('im ' + i + ' greather than 5');
-//}
-
+/*
+for (var i = 1; i <= 20; i +=2) {
+    i === 5 ? console.log('im fcking equal 5') : i < 5 ?console.log('im ' + i + ' not yet equal 5') : console.log('im ' + i + ' greather than 5');
+}
+*/
 
 
 /***********************
 030 Coding Challenge 5
 */
 
-
+/*
 var johnsFamily = {
 
-    bills: [124, 48, 268, 180, 200],
+    fullName: "John Smith",
+    bills: [124, 48, 268, 180, 42],
     tips : [],
     total: [],
     tipCalc: function(){
 
         for(i = 0; i < this.bills.length; i++) {
-
             if(this.bills[i] <= 50){
                 t = this.bills[i] * 0.2;
             }
@@ -590,10 +590,11 @@ var johnsFamily = {
 
 
 var marksFamily = {
+    fullName: "Mark Miller",
     bills: [77, 375, 110, 45],
     tips: [],
     total: [],
-    billCalc: function(){
+    tipCalc: function(){
         for(i = 0; i < this.bills.length; i++){
             if(this.bills[i] <= 100){
                 t = this.bills[i] * 0.2;
@@ -610,14 +611,6 @@ var marksFamily = {
     }
 }
 
-marksFamily.billCalc();
-console.log(marksFamily.tips);
-
-johnsFamily.tipCalc()
-console.log(johnsFamily.total)
-
-
-
 
 function calcAve(arr){
     t = 0;
@@ -628,8 +621,102 @@ function calcAve(arr){
     return ave;
 }
 
-var ave = calcAve(johnsFamily.tips);
-console.log(ave);
+marksFamily.tipCalc();
+johnsFamily.tipCalc();
+
+johnsFamily.average = calcAve(johnsFamily.tips);
+marksFamily.average = calcAve(marksFamily.tips);
+console.log(johnsFamily, marksFamily);
+
+if (johnsFamily.average > marksFamily.average) {
+    console.log(johnsFamily.fullName + '\'s family pays higher tips, with an average of $' + johnsFamily.average);
+}else if (marksFamily.average > johnsFamily.average) {
+    console.log(marksFamily.fullName + '\'s family pays higher tips, with an average of $' + marksFamily.average);
+}
+*/
+
+
+
+/***********************
+039 Hoisting in Practice
+*/
+
+/*
+calcAge(1987);
+
+function calcAge(year){
+    console.log(2019 - year);
+}
+
+
+
+var calcPensia = function(year){
+    console.log(65 - (2019 - year))
+}
+
+calcPensia(1987);
+
+
+var age = 32;
+console.log(age);
+
+function personAge(){
+    console.log(age);
+    var age = 65;
+    console.log(age);
+}
+
+personAge();
+console.log(age);
+*/
+
+
+/***********************
+042 The this Keyword in Practice
+*/
+
+
+//console.log(this);
+//
+//function calcAge(){
+//    console.log(this);
+//}
+//calcAge();
+
+/*
+var john = {
+    name: "John",
+    birthYear: 1987,
+    calcAge: function(){
+        console.log(this);
+        console.log(2019 - this.birthYear);
+//        var foo = function(){
+//            console.log(this);
+//        }
+//        foo();
+    }
+};
+
+john.calcAge();
+
+var mike = {
+    name: "Mike",
+    birthYear: 1984,
+}
+
+mike.calcAge = john.calcAge;
+mike.calcAge();
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
