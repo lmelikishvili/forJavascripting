@@ -59,6 +59,16 @@ body {
     margin-bottom: 130px;
 }
 
+.score {
+    width: 94px;
+}
+
+.player-1-input {
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 100px;
+}
+
 .active {
     background-color: #f7f7f7;
 }

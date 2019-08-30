@@ -1,11 +1,22 @@
-var scores, roundScore, activePlayer, gamePlayng, prevDice, maxScore;
+var scores, roundScore, activePlayer, gamePlayng, prevDice, maxScore, p1, p2;
 init();
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     maxScore = document.getElementById('scoreinput').value;
+    p1 = document.getElementById('input-p-0').value;
+    p2 = document.getElementById('input-p-1').value;
+
     if(gamePlayng && maxScore > 0){
+
+        if(p1 != false && p2 != false){
+
+            document.getElementById('name-0').textContent = p1;
+            document.getElementById('name-1').textContent = p2;
+            console.log(p1);
+        }
+
         var dice = Math.floor(Math.random() * 6) + 1;
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
@@ -32,12 +43,11 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     }
 });
 
-
 document.querySelector('.btn-hold').addEventListener('click', function(){
-    if(gamePlayng){
+    if(gamePlayng && maxScore > 0){
         scores[activePlayer] += roundScore;
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-        if(scores[activePlayer] >= maxScore){
+        if(scores[activePlayer] > maxScore){
             document.querySelector('#name-' + activePlayer).textContent = 'გამარჯვებული';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
@@ -50,7 +60,6 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 })
 
 document.querySelector('.btn-new').addEventListener('click', init)
-
 
 function nextPlayer(){
 
@@ -78,8 +87,10 @@ function init(){
     document.getElementById('score-1').textContent = 0;
     document.getElementById('current-0').textContent = 0;
     document.getElementById('current-1').textContent = 0;
-    document.querySelector('.player-0-panel').classList.remove('winner');   document.querySelector('.player-1-panel').classList.remove('winner');
-    document.getElementById('name-0').textContent = 'მოთამაშე 1';   document.getElementById('name-1').textContent = 'მოთამაშე 2';
+    document.querySelector('.player-0-panel').classList.remove('winner');
+    document.querySelector('.player-1-panel').classList.remove('winner');
+    document.getElementById('name-0').textContent = 'მოთამაშე 1';
+    document.getElementById('name-1').textContent = 'მოთამაშე 2';
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
