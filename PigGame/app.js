@@ -15,7 +15,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
             document.getElementById('name-0').textContent = p1;
             document.getElementById('name-1').textContent = p2;
-            console.log(p1);
+
         }
 
         var dice = Math.floor(Math.random() * 6) + 1;
