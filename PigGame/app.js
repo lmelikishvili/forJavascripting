@@ -1,10 +1,11 @@
-var scores, roundScore, activePlayer, gamePlayng;
+var scores, roundScore, activePlayer, gamePlayng, prevDice, maxScore;
 init();
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
-    if(gamePlayng){
+    maxScore = document.getElementById('scoreinput').value;
+    if(gamePlayng && maxScore > 0){
         var dice = Math.floor(Math.random() * 6) + 1;
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
@@ -13,6 +14,18 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         if(dice !== 1){
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+            if(dice == 6){
+                if(dice == prevDice){
+                    scores[activePlayer] = 0;
+                    document.querySelector('#score-' + activePlayer).textContent = 0;
+                    nextPlayer();
+                }else{
+                    prevDice = dice;
+                }
+            }
+            else if(dice !== 6){
+                prevDice = 0;
+            }
         }else{
             nextPlayer();
         }
@@ -22,9 +35,9 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 document.querySelector('.btn-hold').addEventListener('click', function(){
     if(gamePlayng){
-         scores[activePlayer] += roundScore;
+        scores[activePlayer] += roundScore;
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-        if(scores[activePlayer] >= 20){
+        if(scores[activePlayer] >= maxScore){
             document.querySelector('#name-' + activePlayer).textContent = 'გამარჯვებული';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
@@ -43,11 +56,12 @@ function nextPlayer(){
 
         activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
         roundScore = 0;
+        prevDice = 0;
         document.querySelector('#current-0').textContent = 0;
         document.querySelector('#current-1').textContent = 0;
         document.querySelector('.player-0-panel').classList.toggle('active');
         document.querySelector('.player-1-panel').classList.toggle('active');
-        document.querySelector('.dice').style.display = 'none';
+//        document.querySelector('.dice').style.display = 'none';
 
 //      document.querySelector('.player-0-panel').classList.remove('active');
 //      document.querySelector('.player-1-panel').classList.add('active');
@@ -58,6 +72,7 @@ function init(){
     scores = [0,0];
     roundScore = 0;
     activePlayer = 0;
+    maxScore = 0;
     document.querySelector('.dice').style.display = 'none';
     document.getElementById('score-0').textContent = 0;
     document.getElementById('score-1').textContent = 0;
