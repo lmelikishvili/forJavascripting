@@ -11,7 +11,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
     if(gamePlayng && maxScore > 0){
 
-        if(p1 != false && p2 != false){
+        if(p1 && p2){
 
             document.getElementById('name-0').textContent = p1;
             document.getElementById('name-1').textContent = p2;

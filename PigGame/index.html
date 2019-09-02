@@ -10,15 +10,16 @@
     </head>
 
     <body>
-        <div class="wrapper clearfix">
+        <div class="wrapper clearfix" style="border-radius: 0.5em">
             <div class="player-0-panel active">
                 <div class="player-name" id="name-0">მოთამაშე 1</div>
                 <div class="player-score" id="score-0">43</div>
                 <div class="player-current-box">
                     <div class="player-current-label">მიმდინარე</div>
                     <div class="player-current-score" id="current-0" >11</div>
-
                 </div>
+                <br>
+                <input class="p-input" placeholder="მოთამაშე 1" id="input-p-0" type="text">
             </div>
 
             <div class="player-1-panel">
@@ -28,31 +29,11 @@
                     <div class="player-current-label">მიმიდნარე</div>
                     <div class="player-current-score" id="current-1">0</div>
                 </div>
-
+                <br>
+                <input class="p-input" placeholder="მოთამაშე 1" id="input-p-1" type="text">
             </div>
 
-            <div id="prop-panel" >
-                <div style="height: 43px; margin-left: 2px;" >
-                <b>მაქს. ქულა:<br></b>
-                <input class="score" id="scoreinput" type="text">
-                </div>
-
-                <div style= "height: 43px; margin-left: 100px;">
-                <b>მოთ-1:<br></b>
-                <input class="score" id="input-p-0" type="text">
-                </div>
-
-                <div style="margin-left: 200px;">
-                <b>მოთ-2:<br></b>
-                <input class="score" id="input-p-1" type="text">
-                </div>
-
-            </div>
-
-
-
-
-
+            <input class="score" placeholder="მაქს. ქულა" id="scoreinput" type="text">
             <button class="btn-new"><i class="ion-ios-plus-outline"></i>თავიდან</button>
             <button class="btn-roll"><i class="ion-ios-loop"></i>სვლა</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>შენახვა</button>
