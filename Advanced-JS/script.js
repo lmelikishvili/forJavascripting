@@ -124,7 +124,7 @@ console.log(heartRates);
 
 
 // Lecture: Functions returning functions
-
+/*
 function interviuQuestion(job){
     return function(name){
         if(job === ('Teacher')){
@@ -137,5 +137,100 @@ function interviuQuestion(job){
     }
 }
 
-var question = interviuQuestion('Designer');
-question('meliqa');
+var netadminQuestion = interviuQuestion('Netadmin');
+netadminQuestion('meliqa');
+
+interviuQuestion('Designer')('Kate');
+*/
+
+
+// Lecture: IIFE
+
+/*
+var game = function(){
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+
+game();
+
+//IIFE
+
+(function(goodluck){
+    var score = Math.floor(Math.random() * 10);
+    console.log(score + 5 + goodluck);
+})(5);
+*/
+
+
+//Lecture: Closures
+/*
+function retirement(retirementAge){
+    var a = ' years left before retirement'
+    return function(yearOfBirth){
+        var age = 2019 - yearOfBirth;
+        console.log(retirementAge - age + a);
+    }
+}
+
+retirement(66)(1987);
+
+//with Closures
+function interviuQuestion(job){
+    var t = 'Wat kind of subject do u teach ';
+    var n = 'Wat is an Global network ';
+    var d = 'Wat kind of designe do u making ';
+    return function(name){
+        if(job === ('Teacher')){
+            console.log(t + name + '?');
+        }else if(job === 'Netadmin'){
+            console.log(n + name + '?');
+        }else if(job === 'Designer'){
+            console.log(d + name + '?');
+        }
+    }
+}
+
+interviuQuestion('Netadmin')('Meliqa');
+interviuQuestion('Designer')('Kate');
+interviuQuestion('Teacher')('John');
+*/
+
+
+// Lecture: Bind, call and apply
+
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'teacher',
+    presentation: function(style, timeOfDay){
+        if(style === 'formal'){
+            console.log('Good ' + timeOfDay + ', Ladies and gentlemens! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
+        }else if(style === 'friendly'){
+            console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.')
+        }
+    }
+};
+
+var emily = {
+    name: 'Emili',
+    age: 35,
+    job: 'designer'
+};
+
+
+john.presentation('formal', 'evening');
+john.presentation('friendly', 'morning');
+
+//john.presentation.call(emily, ['friendly', 'night']);
+
+//CALL
+john.presentation.call(emily, 'friendly', 'morning');
+
+//BIND
+var johnFriendly = john.presentation.bind(john, 'friendly');
+johnFriendly('evening');
+johnFriendly('night');
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+emilyFormal('morning');
