@@ -198,7 +198,7 @@ interviuQuestion('Teacher')('John');
 
 
 // Lecture: Bind, call and apply
-
+/*
 var john = {
     name: 'John',
     age: 26,
@@ -234,3 +234,101 @@ johnFriendly('night');
 
 var emilyFormal = john.presentation.bind(emily, 'formal');
 emilyFormal('morning');
+
+
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function calcArray (arr, fn){
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++){
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calcAges(el){
+    return 2019 - el;
+}
+
+function isFullAge(limit, el){
+    return el >= limit;
+}
+
+
+var ages = calcArray(years, calcAges);
+console.log(ages);
+var japanFull = calcArray(ages, isFullAge.bind(this, 20));
+console.log(japanFull);
+*/
+
+
+//Coding Chalange 7
+
+var userScore = 0;
+
+var Question = function(quest, answers){
+    this.quest = quest;
+    this.answers = answers;
+}
+
+var question1 = new Question('აზრზე არა ვარ სადა ვარ?', ['ტყეში', 'მინდორში', 'სტადიონზე']);
+
+var question2 = new Question('რომელია საქართველოს დედაქალაქი', ['ბათუმი', 'თბილისი', 'ქუთაისი']);
+
+var question3 = new Question('რომელია მეცხრე პლანეტა?', ['მარსი', 'იუპიტერი', 'სატურნი']);
+
+var quests = [question1, question2, question3];
+
+
+
+var questselector = function(arr){
+    var random = Math.round(Math.random() * 2);
+    var answerNum = 0;
+    console.log(arr[random].quest);
+    for(var i = 0; i < arr[random].answers.length; i++ ){
+        answerNum = arr[random].answers[i];
+        console.log(i + ': ' + answerNum);
+    }
+
+    var userAnswer = prompt('ჩაწერეთ სწორი პასუხი:\n Cancel არ მუშაობს :D');
+    ckeckAnswer();
+    function ckeckAnswer(){
+        if(random == 0 && userAnswer == 0){
+            console.log('პასუხი სწორია!!!');
+            userScore++;
+            console.log('თქვენ დააგროვეთ: ' + userScore + ' ქულა!!!');
+
+        }else if(random == 1 && userAnswer == 1){
+            console.log('პასუხი სწორია!!!');
+            userScore++;
+            console.log('თქვენ დააგროვეთ: ' + userScore + ' ქულა!!!');
+
+        }else if(random == 2 && userAnswer == 2){
+            console.log('პასუხი სწორია!!!');
+            userScore++;
+            console.log('თქვენ დააგროვეთ: ' + userScore + ' ქულა!!!');
+
+        }else if(userAnswer == 'exit'){
+            return;
+            userScore = 0;
+
+        }else{
+            console.log('სცადეთ თავიდან!!!');
+        }
+        console.log('-----------------------------')
+        questselector(quests);
+    }
+}
+
+questselector(quests);
+
+
+
+
+
+
+
+
+
+
