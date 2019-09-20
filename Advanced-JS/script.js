@@ -265,23 +265,58 @@ console.log(japanFull);
 
 //Coding Chalange 7
 
-var userScore = 0;
-
-var Question = function(quest, answers){
+(function(){
+    var Question = function(quest, answers, correct){
     this.quest = quest;
     this.answers = answers;
-}
+    this.correct = correct;
+    }
 
-var question1 = new Question('აზრზე არა ვარ სადა ვარ?', ['ტყეში', 'მინდორში', 'სტადიონზე']);
+    var question1 = new Question('აზრზე არა ვარ სადა ვარ?', ['ტყეში', 'მინდორში', 'სტადიონზე'], 0);
 
-var question2 = new Question('რომელია საქართველოს დედაქალაქი', ['ბათუმი', 'თბილისი', 'ქუთაისი']);
+    var question2 = new Question('რომელია საქართველოს დედაქალაქი', ['ბათუმი', 'თბილისი', 'ქუთაისი'], 1);
 
-var question3 = new Question('რომელია მეცხრე პლანეტა?', ['მარსი', 'იუპიტერი', 'სატურნი']);
+    var question3 = new Question('რომელია მეცხრე პლანეტა?', ['მარსი', 'იუპიტერი', 'სატურნი'], 2);
 
-var quests = [question1, question2, question3];
+    var quests = [question1, question2, question3];
+
+    Question.prototype.questDisplay = function(){
+        console.log(this.quest);
+        for(var i = 0; i < this.answers.length; i++){
+            console.log(i + ': ' + this.answers[i]);
+        }
+    }
+
+    Question.prototype.checkAnswer = function(ans){
+        if(ans === this.correct){
+            console.log('პასუხი სწორია!');
+        }else{
+            console.log('პასუხი არასწორია, კიდევ სცადეთ :)');
+        }
+    }
+
+    function nexQuestion(){
+
+        var n = Math.floor(Math.random() * quests.length);
+
+        var activeQuest = quests[n];
+        activeQuest.questDisplay();
+
+        var answer = prompt('ჩაწერეთ სწორი პასუხი');
+
+        if(answer !== 'exit'){
+            activeQuest.checkAnswer(parseInt(answer));
+            nexQuestion();
+        }
+    }
+    nexQuestion()
+
+})();
 
 
 
+
+/* Chemi kodi
 var questselector = function(arr){
     var random = Math.round(Math.random() * 2);
     var answerNum = 0;
@@ -320,8 +355,9 @@ var questselector = function(arr){
         questselector(quests);
     }
 }
+*/
 
-questselector(quests);
+
 
 
 
