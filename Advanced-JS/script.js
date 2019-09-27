@@ -287,13 +287,34 @@ console.log(japanFull);
         }
     }
 
-    Question.prototype.checkAnswer = function(ans){
+    Question.prototype.checkAnswer = function(ans, callBack){
+        var sc;
         if(ans === this.correct){
             console.log('პასუხი სწორია!');
+            sc = callBack(true);
         }else{
             console.log('პასუხი არასწორია, კიდევ სცადეთ :)');
+            sc = callBack(false);
+        }
+        this.displayScore(sc);
+    }
+
+    Question.prototype.displayScore = function(score){
+        console.log('თქვენ დააგროვეთ ' + score + ' ქულა!');
+        console.log('------------------------------------');
+    }
+
+    function score(){
+        var sc = 0;
+        return function(correct){
+            if(correct){
+                sc++;
+            }
+            return sc;
         }
     }
+
+    var keepScore = score();
 
     function nexQuestion(){
 
@@ -305,7 +326,7 @@ console.log(japanFull);
         var answer = prompt('ჩაწერეთ სწორი პასუხი');
 
         if(answer !== 'exit'){
-            activeQuest.checkAnswer(parseInt(answer));
+            activeQuest.checkAnswer(parseInt(answer), keepScore);
             nexQuestion();
         }
     }
